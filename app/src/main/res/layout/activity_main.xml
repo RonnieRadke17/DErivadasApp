@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/mostrar"
+        android:layout_width="384dp"
+        android:layout_height="152dp"
+        android:gravity="bottom|right"
+        android:text="@string/mostrar"
+        android:textAlignment="textEnd"
+        android:textSize="48sp"
+        app:layout_constraintBottom_toTopOf="@+id/tableLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.038"
+        tools:ignore="RtlHardcoded,SpeakableTextPresentCheck" />
+
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="386dp"
+        android:layout_height="551dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.46"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.93"
+        tools:ignore="VisualLintBounds">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <android.widget.Button
+                android:id="@+id/raiz"
+                android:layout_width="84dp"
+                android:layout_height="84dp"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/oval"
+                android:text="@string/raiz"
+                android:textColor="@color/white"
+                android:textSize="30sp" />
+
+            <android.widget.Button
+                android:id="@+id/potencia"
+                android:layout_width="84dp"
+                android:layout_height="84dp"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/oval"
+                android:text="@string/potencia"
+                android:textColor="@color/white"
+                android:textSize="30sp" />
+
+            <android.widget.Button
+                android:id="@+id/porcentaje2"
+                android:layout_width="84dp"
+                android:layout_height="84dp"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/oval"
+                android:text="@string/parentesisIZQ"
+                android:textColor="@color/white"
+                android:textSize="30sp" />
+
+            <android.widget.Button
+                android:id="@+id/parentesisDer"
+                android:layout_width="84dp"
+                android:layout_height="84dp"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/oval"
+                android:text="@string/parentesisDER"
+                android:textColor="@color/white"
+                android:textSize="30sp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <android.widget.Button
+                android:id="@+id/borrarT"
+                android:layout_width="84dp"
+                android:layout_height="84dp"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/oval"
+                android:text="@string/borrar"
+                android:textColor="@color/white"
+                android:textSize="30sp" />
+
+            <android.widget.Button
+                android:id="@+id/borrar"
+                android:layout_width="84dp"
+                android:layout_height="84dp"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/oval"
+                android:text="@string/borrar1"
+                android:textColor="@color/white"
+                android:textSize="30sp" />
+
+            <android.widget.Button
+                android:id="@+id/fraccion"
+                android:layout_width="84dp"
+                android:layout_height="84dp"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/oval"
+                android:text="@string/fraccion"
+                android:textColor="@color/white"
+                android:textSize="30sp" />
+
+            <android.widget.Button
+                android:id="@+id/division"
+                android:layout_width="84dp"
+                android:layout_height="84dp"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/oval"
+                android:text="@string/div"
+                android:textColor="@color/white"
+                android:textSize="30sp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <android.widget.Button
+                android:id="@+id/num7"
+                android:layout_width="84dp"
+                android:layout_height="84dp"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/ovalnumber"
+                android:text="@string/num7"
+                android:textColor="#F4F7F8"
+                android:textSize="30sp"
+                tools:ignore="TextContrastCheck" />
+
+            <android.widget.Button
+                android:id="@+id/num8"
+                android:layout_width="84dp"
+                android:layout_height="84dp"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/ovalnumber"
+                android:text="@string/num8"
+                android:textColor="#F4F7F8"
+                android:textSize="30sp"
+                tools:ignore="TextContrastCheck" />
+
+            <android.widget.Button
+                android:id="@+id/num9"
+                android:layout_width="84dp"
+                android:layout_height="84dp"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/ovalnumber"
+                android:text="@string/num9"
+                android:textColor="#F4F7F8"
+                android:textSize="30sp"
+                tools:ignore="TextContrastCheck" />
+
+            <android.widget.Button
+                android:id="@+id/terminoX"
+                android:layout_width="84dp"
+                android:layout_height="84dp"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/oval"
+                android:text="@string/mul"
+                android:textColor="@color/white"
+                android:textSize="30sp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <android.widget.Button
+                android:id="@+id/num4"
+                android:layout_width="84dp"
+                android:layout_height="84dp"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/ovalnumber"
+                android:text="@string/num4"
+                android:textColor="#F4F7F8"
+                android:textSize="30sp"
+                tools:ignore="TextContrastCheck" />
+
+            <android.widget.Button
+                android:id="@+id/num5"
+                android:layout_width="84dp"
+                android:layout_height="84dp"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/ovalnumber"
+                android:text="@string/num5"
+                android:textColor="#F4F7F8"
+                android:textSize="30sp"
+                tools:ignore="TextContrastCheck,TextContrastCheck" />
+
+            <android.widget.Button
+                android:id="@+id/num6"
+                android:layout_width="84dp"
+                android:layout_height="84dp"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/ovalnumber"
+                android:text="@string/num6"
+                android:textColor="#F4F7F8"
+                android:textSize="30sp"
+                tools:ignore="TextContrastCheck" />
+
+            <android.widget.Button
+                android:id="@+id/resta"
+                android:layout_width="84dp"
+                android:layout_height="84dp"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/oval"
+                android:text="@string/resta"
+                android:textColor="@color/white"
+                android:textSize="34sp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <android.widget.Button
+                android:id="@+id/num1"
+                android:layout_width="84dp"
+                android:layout_height="84dp"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/ovalnumber"
+                android:text="@string/num1"
+                android:textColor="#F4F7F8"
+                android:textSize="30sp"
+                tools:ignore="TextContrastCheck,TextContrastCheck" />
+
+            <android.widget.Button
+                android:id="@+id/num2"
+                android:layout_width="84dp"
+                android:layout_height="84dp"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/ovalnumber"
+                android:text="@string/num2"
+                android:textColor="#F4F7F8"
+                android:textSize="30sp"
+                tools:ignore="TextContrastCheck,TextContrastCheck" />
+
+            <android.widget.Button
+                android:id="@+id/num3"
+                android:layout_width="84dp"
+                android:layout_height="84dp"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/ovalnumber"
+                android:text="@string/num3"
+                android:textColor="#F4F7F8"
+                android:textSize="30sp"
+                tools:ignore="TextContrastCheck,TextContrastCheck" />
+
+            <android.widget.Button
+                android:id="@+id/suma"
+                android:layout_width="84dp"
+                android:layout_height="84dp"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/oval"
+                android:text="@string/suma"
+                android:textColor="@color/white"
+                android:textSize="30sp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <android.widget.Button
+                android:id="@+id/cambio"
+                android:layout_width="85dp"
+                android:layout_height="84dp"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/oval"
+                android:text=" "
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
+
+            <android.widget.Button
+                android:id="@+id/num0"
+                android:layout_width="85dp"
+                android:layout_height="84dp"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/ovalnumber"
+                android:text="@string/num0"
+                android:textColor="#F4F7F8"
+                android:textSize="30sp"
+                tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck,TextContrastCheck,TextContrastCheck" />
+
+            <android.widget.Button
+                android:id="@+id/punto"
+                android:layout_width="85dp"
+                android:layout_height="84dp"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/oval"
+                android:text="@string/punto"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="30sp" />
+
+            <android.widget.Button
+                android:id="@+id/igual"
+                android:layout_width="85dp"
+                android:layout_height="84dp"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/oval"
+                android:text="@string/igual"
+                android:textColor="@color/white"
+                android:textSize="30sp" />
+
+        </TableRow>
+
+    </TableLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

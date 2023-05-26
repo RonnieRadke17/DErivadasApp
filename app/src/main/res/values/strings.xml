@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">Derivadas app</string>
+        <string name="num1">1</string>
+        <string name="num2">2</string>
+        <string name="num3">3</string>
+        <string name="num4">4</string>
+        <string name="num5">5</string>
+        <string name="num6">6</string>
+        <string name="num7">7</string>
+        <string name="num8">8</string>
+        <string name="num9">9</string>
+        <string name="num0">0</string>
+
+        <string name="mostrar"> </string>
+        <string name="raiz">√</string>
+        <string name="seno">sen</string>
+        <string name="coseno">cos</string>
+        <string name="tangente">tan</string>
+        <string name="logaritmo">log</string>
+        <string name="borrar">AC</string>
+        <string name="borrar1">⌫</string>
+        <string name="porcentaje">%</string>
+        <string name="div">÷</string>
+        <string name="mul">x</string>
+        <string name="resta">-</string>
+        <string name="suma">+</string>
+        <string name="igual">=</string>
+        <string name="punto">.</string>
+        <string name="cambio">⇄</string>
+        <string name="potencia">^</string>
+        <string name="parentesisIZQ">(</string>
+        <string name="parentesisDER">)</string>
+        <string name="numero1Peuqño">²</string>
+        <string name="fraccion">/</string>
+    </resources>
