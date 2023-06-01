@@ -10,11 +10,14 @@ import android.widget.Toast;
 
 import com.example.derivadasapp.databinding.ActivityMainBinding;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {//revisar lo de la potencia
     ActivityMainBinding binding;
 
     private TextView mostrar;
     String unir, cadena;
+    ArrayList<String> ecuaciones = new ArrayList<>();
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -140,11 +143,13 @@ public class MainActivity extends AppCompatActivity {//revisar lo de la potencia
             Toast.makeText(this, "regla 4:  " + valor, Toast.LENGTH_SHORT).show();
         } else if (regla5(valor)) {//modificar
             Toast.makeText(this, "regla 5:  " + valor, Toast.LENGTH_SHORT).show();
+        } else if (regla6(valor)) {//modificar
+            Toast.makeText(this, "regla 6:  " + valor, Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(this, "ninguna regla", Toast.LENGTH_SHORT).show();
         }
 
-
+        //numero(valor);
     }
 
     public boolean regla1(String valor) {//puros numeeros -1 1 1/1 0.4 -4.0 etc esta bien
@@ -204,57 +209,145 @@ public class MainActivity extends AppCompatActivity {//revisar lo de la potencia
     //se tendriá que poner un if asi
     /*val2 += valor.charAt(1);
     if(val1.equals("^") || val1.equals("-")){*/ // mas o menos asi es verificar el primer y segundo caracter
-    public boolean regla4(String valor) {//puros numeeros x^2
+    public boolean regla4(String valor) {//puros numeeros x^2 // parece ya estar bien
         String valorFinal = "";
         boolean regla = false;
-        String val1 = "";
+        String val1 = "", val2 = "", val3 = "";
         val1 += valor.charAt(0);
+        val2 += valor.charAt(1);
+        val3 += valor.charAt(2);
+        //boolean numeros = !val1.equals("1") || !val1.equals("2") || !val1.equals("3") || !val1.equals("4") || !val1.equals("5") || !val1.equals("6") || !val1.equals("7") || !val1.equals("8") || !val1.equals("9") || !val1.equals("0");
+        if (val1.equals("1") || val1.equals("2") || val1.equals("3") || val1.equals("4") || val1.equals("5") || val1.equals("6") || val1.equals("7") || val1.equals("8") || val1.equals("9") || val1.equals("0") || val2.equals("1") || val2.equals("2") || val2.equals("3") || val2.equals("4") || val2.equals("5") || val2.equals("6") || val2.equals("7") || val2.equals("8") || val2.equals("9") || val2.equals("0")){
+            regla = false;
+            //Toast.makeText(this, "No entra en regla 4", Toast.LENGTH_SHORT).show();
+            return false;
 
-        if(val1.equals("x") || val1.equals("-")){
-            for (int i = 0; i < valor.length(); i++) {
+        }
+        if (val1.equals("x") || val1.equals("-") || val2.equals("^") || val2.equals("x") || val3.equals("^")) {//aqui seria poner el signo de potencia pero con la pos 1 o 2
+            for (int i = 2; i < valor.length(); i++) {
                 char letra = valor.charAt(i);
                 //poner que evalue antes de un numero si hay un signo de potencia ^
                 //primero variable o signo
 
 
-                if(letra == '^' || letra == '1' || letra == '2' || letra == '3' || letra == '4' || letra == '5' || letra == '6' || letra == '7' || letra == '8' || letra == '9' || letra == '0'){
+                if (letra == '^' || letra == '1' || letra == '2' || letra == '3' || letra == '4' || letra == '5' || letra == '6' || letra == '7' || letra == '8' || letra == '9' || letra == '0') {
                     regla = true;
                 } else {
                     regla = false;
+                    break;
                 }
 
             }
         }
 
-        return regla;
-    }
-
-    public boolean regla5(String valor) {//puros numeeros -1 1 1/1 0.4 -4.0 etc
-        String valorFinal = "";
-        boolean regla = false;
-        for (int i = 0; i < valor.length(); i++) {
-            char letra = valor.charAt(i);
-            if (letra == '1' || letra == '2' || letra == '3' || letra == '4' || letra == '5' || letra == '6' || letra == '7' || letra == '8' || letra == '9' || letra == '0') {
-                //Toast.makeText(this,"hola",Toast.LENGTH_SHORT).show();
-                regla = true;
-            }else if(letra == 'x'  || letra == '^' || letra == '-'){
-                // Toast.makeText(this,"hola regla",Toast.LENGTH_SHORT).show();
-                regla = true;
-            }  else {
-                regla = false;
-                //Toast.makeText(this,"regla finalizadad",Toast.LENGTH_SHORT).show();
-
-                break;
-            }
-
+        else{
+            regla = false;
+            return false;
 
         }
 
         return regla;
     }
 
+    public boolean regla5(String valor) {//puros numeeros -1 1 1/1 0.4 -4.0 etc // en valor(0) tiene que ser - o n de afuerzas no el 0 ni 1
+        String valorFinal = "";
+        boolean regla = false;
+        String valorPos0="",valorPos1="",valorPos2="",valorPos3="";
+        valorPos0 += valor.charAt(0);
+        valorPos1 += valor.charAt(1);
+        valorPos2 += valor.charAt(2);
+        //boolean pos0 = valorPos0.equals('-') || valorPos0.equals('1') || valorPos0.equals('2') || valorPos0.equals('3') || valorPos0.equals('4') || valorPos0.equals('5') || valorPos0.equals('6') || valorPos0.equals('7') || valorPos0.equals('8') || valorPos0.equals('9');
+        //boolean pos1 = valorPos0.equals('1') || valorPos0.equals('2') || valorPos0.equals('3') || valorPos0.equals('4') || valorPos0.equals('5') || valorPos0.equals('6') || valorPos0.equals('7') || valorPos0.equals('8') || valorPos0.equals('9') ||  valorPos0.equals('0');
+        String val1 = "", val2 = "", val3 = "";
+        val1 += valor.charAt(0);
+        val2 += valor.charAt(1);
+        val3 += valor.charAt(2);
+        //boolean numeros = !val1.equals("1") || !val1.equals("2") || !val1.equals("3") || !val1.equals("4") || !val1.equals("5") || !val1.equals("6") || !val1.equals("7") || !val1.equals("8") || !val1.equals("9") || !val1.equals("0");
+        if (val1.equals("1") || val1.equals("2") || val1.equals("3") || val1.equals("4") || val1.equals("5") || val1.equals("6") || val1.equals("7") || val1.equals("8") || val1.equals("9") || val1.equals("0") || val2.equals("1") || val2.equals("2") || val2.equals("3") || val2.equals("4") || val2.equals("5") || val2.equals("6") || val2.equals("7") || val2.equals("8") || val2.equals("9") || val2.equals("0")){
+            regla = true;
+            //Toast.makeText(this, "Regla 5 siuuu", Toast.LENGTH_SHORT).show();
+            //return true;
+            for (int i = 0; i < valor.length(); i++) {
+                char letra = valor.charAt(i);
+                if (letra == '1' || letra == '2' || letra == '3' || letra == '4' || letra == '5' || letra == '6' || letra == '7' || letra == '8' || letra == '9' || letra == '0') {
+                    //Toast.makeText(this,"hola",Toast.LENGTH_SHORT).show();
+                    regla = true;
+                }else if(letra == 'x'  || letra == '^' || letra == '-'){
+                    // Toast.makeText(this,"hola regla",Toast.LENGTH_SHORT).show();
+                    regla = true;
+                }  else {
+                    regla = false;
+                    //Toast.makeText(this,"regla finalizadad",Toast.LENGTH_SHORT).show();
+
+                    break;
+                }
 
 
+            }
+
+        }
+
+
+
+        /*if(pos0 && pos1){//numeros del 2 al 9
+            regla = true;
+            for (int i = 0; i < valor.length(); i++) {
+                char letra = valor.charAt(i);
+                if (letra == '1' || letra == '2' || letra == '3' || letra == '4' || letra == '5' || letra == '6' || letra == '7' || letra == '8' || letra == '9' || letra == '0') {
+                    //Toast.makeText(this,"hola",Toast.LENGTH_SHORT).show();
+                    regla = true;
+                }else if(letra == 'x'  || letra == '^' || letra == '-'){
+                    // Toast.makeText(this,"hola regla",Toast.LENGTH_SHORT).show();
+                    regla = true;
+                }  else {
+                    regla = false;
+                    //Toast.makeText(this,"regla finalizadad",Toast.LENGTH_SHORT).show();
+
+                    break;
+                }
+
+
+            }
+        }else {
+            regla = false;
+
+            //Toast.makeText(this,"regla finalizadad",Toast.LENGTH_SHORT).show();
+
+        }*/
+        return regla;
+    }
+
+    public boolean regla6(String valor){//prueba de testeo es practicamente -4x+3x-x+√12 que tenga mas de dos elementos separados por signo
+        String ecuacion = "";
+        boolean regla = false;
+        //verificar que inicie con signo
+        /*if(valor.charAt(0) == '+' || valor.charAt(0) == '-'){//verificamos si tiene algun signo
+            regla = true;
+        }*/
+
+        for(int i=0;i<valor.length();i++){
+            ecuacion += valor.charAt(i);
+            if((valor.charAt(i) == '-' && valor.charAt(i+1) == '-') || (valor.charAt(i) == '+' && valor.charAt(i+1) == '+') ){
+                Toast.makeText(this, "REgla 6 mal", Toast.LENGTH_SHORT).show();
+                regla = false;
+                break;
+            }else if(valor.charAt(i) == '-' || valor.charAt(i) == '+'){
+                ecuaciones.add(ecuacion);
+                //Toast.makeText(this, "separación", Toast.LENGTH_SHORT).show();
+                ecuacion="";
+                regla = true;
+            }
+
+        }
+        //imprimir();
+        return regla;
+    }
+
+    public void imprimir(){
+        for (int i=0;i<ecuaciones.size();i++){
+            Toast.makeText(this,ecuaciones.get(i), Toast.LENGTH_SHORT).show();
+        }
+    }
 
 
     String borrar1(String valor) {
