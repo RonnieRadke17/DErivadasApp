@@ -62,7 +62,7 @@
                 android:textSize="30sp" />
 
             <android.widget.Button
-                android:id="@+id/porcentaje2"
+                android:id="@+id/parentesisIzq"
                 android:layout_width="84dp"
                 android:layout_height="84dp"
                 android:layout_margin="3dp"

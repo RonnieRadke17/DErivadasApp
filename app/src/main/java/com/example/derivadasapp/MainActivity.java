@@ -1,8 +1,10 @@
 package com.example.derivadasapp;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -52,6 +54,8 @@ public class MainActivity extends AppCompatActivity {//revisar lo de la potencia
         binding.fraccion.setOnClickListener(v -> binding.mostrar.setText(contatenar(16)));
         binding.potencia.setOnClickListener(v -> binding.mostrar.setText(contatenar(15)));
         binding.raiz.setOnClickListener(v -> binding.mostrar.setText(contatenar(17)));
+        binding.parentesisIzq.setOnClickListener(v -> binding.mostrar.setText(contatenar(18)));
+        binding.parentesisDer.setOnClickListener(v -> binding.mostrar.setText(contatenar(19)));
         //binding.potencia.setOnClickListener(v->binding.mostrar.setText(concatenarPotencia()));
         binding.borrar.setOnClickListener(v -> binding.mostrar.setText(borrar1((String) binding.mostrar.getText())));
         binding.borrarT.setOnClickListener(v -> binding.mostrar.setText(borrarT((String) binding.mostrar.getText())));
@@ -125,28 +129,48 @@ public class MainActivity extends AppCompatActivity {//revisar lo de la potencia
             case 17://borrar luego o verificar
                 unir = unir + "√";
                 break;
+            case 18://borrar luego o verificar
+                unir = unir + "(";
+                break;
+            case 19://borrar luego o verificar
+                unir = unir + ")";
+                break;
 
         }
         return unir;
     }
 
     public void comprobarRegla() {
+        //mostrarResultado();
         String valor = (String) binding.mostrar.getText();
         String valorFinal = "";
         if (regla1(valor)) {
-            Toast.makeText(this, "regla 1:  " + valor, Toast.LENGTH_SHORT).show();
+            mostrarResultado("Regla 1",valor);
+            //Toast.makeText(this, "regla 1:  " + valor, Toast.LENGTH_SHORT).show();
         } else if (regla2(valor)) {
-            Toast.makeText(this, "regla 2:  " + valor, Toast.LENGTH_SHORT).show();
+            mostrarResultado("Regla 2",valor);
+            //Toast.makeText(this, "regla 2:  " + valor, Toast.LENGTH_SHORT).show();
         } else if (regla3(valor)) {//modificar
-            Toast.makeText(this, "regla 3:  " + valor, Toast.LENGTH_SHORT).show();
+            mostrarResultado("Regla 3",valor);
+            //Toast.makeText(this, "regla 3:  " + valor, Toast.LENGTH_SHORT).show();
         } else if (regla4(valor)) {//modificar
-            Toast.makeText(this, "regla 4:  " + valor, Toast.LENGTH_SHORT).show();
+            mostrarResultado("Regla 4",valor);
+            //Toast.makeText(this, "regla 4:  " + valor, Toast.LENGTH_SHORT).show();
         } else if (regla5(valor)) {//modificar
-            Toast.makeText(this, "regla 5:  " + valor, Toast.LENGTH_SHORT).show();
+            mostrarResultado("Regla 5",valor);
+            //Toast.makeText(this, "regla 5:  " + valor, Toast.LENGTH_SHORT).show();
         } else if (regla6(valor)) {//modificar
-            Toast.makeText(this, "regla 6:  " + valor, Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(this, "ninguna regla", Toast.LENGTH_SHORT).show();
+            mostrarResultado("Regla 6",valor);
+            //Toast.makeText(this, "regla 6:  " + valor, Toast.LENGTH_SHORT).show();
+        } else if (regla7(valor)) {//modificar
+            mostrarResultado("Regla 7",valor);
+            //Toast.makeText(this, "regla 6:  " + valor, Toast.LENGTH_SHORT).show();
+        }else if (regla8(valor)) {//modificar
+            mostrarResultado("Regla 8",valor);
+            //Toast.makeText(this, "regla 6:  " + valor, Toast.LENGTH_SHORT).show();
+        }else {
+            mostrarResultado("No coincide con ninguna regla",valor);
+            //Toast.makeText(this, "ninguna regla", Toast.LENGTH_SHORT).show();
         }
 
         //numero(valor);
@@ -325,10 +349,14 @@ public class MainActivity extends AppCompatActivity {//revisar lo de la potencia
             regla = true;
         }*/
 
-        for(int i=0;i<valor.length();i++){
+        for(int i=0;i<valor.length();i++){//poner que no acepta () ni /
             ecuacion += valor.charAt(i);
+            if(valor.charAt(i) == '(' || valor.charAt(i) == ')' || valor.charAt(i) == '/'){
+                regla = false;
+            }
+
             if((valor.charAt(i) == '-' && valor.charAt(i+1) == '-') || (valor.charAt(i) == '+' && valor.charAt(i+1) == '+') ){
-                Toast.makeText(this, "REgla 6 mal", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(this, "REgla 6 mal", Toast.LENGTH_SHORT).show();
                 regla = false;
                 break;
             }else if(valor.charAt(i) == '-' || valor.charAt(i) == '+'){
@@ -342,6 +370,44 @@ public class MainActivity extends AppCompatActivity {//revisar lo de la potencia
         //imprimir();
         return regla;
     }
+
+    public boolean regla7(String valor) {//multiplicacion
+        String valorFinal = "";
+        boolean regla = false;
+        for (int i = 0; i < valor.length(); i++) {
+            char letra = valor.charAt(i);
+            if (letra == '(' ) {//COMPROMAR QUE HAYA MULTIPLICACION
+                //regla = true;
+            }else if( letra== ')' ){//PARA QUE AL INGRESAR PARENTESIS NO PONGA REGLA 7
+                //regla = true;
+            }else if (letra == '+'||letra == '-'|| letra== 'x'||letra== '^' || letra == '1' || letra == '2' || letra == '3' || letra == '4' || letra == '5' || letra == '6' || letra == '7' || letra == '8' || letra == '9' || letra == '0') {
+                regla = true;
+            }  else {
+                regla = false;
+                break;
+            }
+        }
+        return regla;
+    }
+
+    public boolean regla8(String valor) {//FRACION
+        String valorFinal = "";
+        boolean regla = false;
+        for (int i = 0; i < valor.length(); i++) {
+            char letra = valor.charAt(i);
+            if (letra== '^'||letra == '(' || letra == ')' || letra=='-'||letra=='+'||letra=='x'|| letra == '1' || letra == '2' || letra == '3' || letra == '4' || letra == '5' || letra == '6' || letra == '7' || letra == '8' || letra == '9' || letra == '0') {
+                //regla = false;
+            }else if(letra == '/' ){
+                regla = true;
+            }  else {
+                regla = false;
+                break;
+            }
+        }
+        return regla;
+    }
+
+
 
     public void imprimir(){
         for (int i=0;i<ecuaciones.size();i++){
@@ -366,5 +432,22 @@ public class MainActivity extends AppCompatActivity {//revisar lo de la potencia
         }
         return cadena;
     }
+
+    public void mostrarResultado(String regla,String ecuacion){
+        AlertDialog.Builder alerta = new AlertDialog.Builder(MainActivity.this);
+        alerta.setMessage("Valor de la ecuacion: "+ecuacion)
+        .setCancelable(true)
+        .setPositiveButton("Regresar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        AlertDialog titulo = alerta.create();
+        titulo.setTitle(regla);
+        titulo.show();
+
+    }
+
 
 }
