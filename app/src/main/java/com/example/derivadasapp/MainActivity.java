@@ -14,7 +14,7 @@ import com.example.derivadasapp.databinding.ActivityMainBinding;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {//revisar lo de la potencia
+public class MainActivity extends AppCompatActivity {//Agregar la raiz en las funciones que falta
     ActivityMainBinding binding;
 
     private TextView mostrar;
@@ -24,11 +24,13 @@ public class MainActivity extends AppCompatActivity {//revisar lo de la potencia
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //Thread.sleep(2000);
+        setTheme(R.style.Base_Theme_DerivadasApp);
         super.onCreate(savedInstanceState);
+
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
-
         mostrarTexto();
     }
 
@@ -63,7 +65,7 @@ public class MainActivity extends AppCompatActivity {//revisar lo de la potencia
 
     }
 
-    String concatenarPotencia() {//revisar esto
+    String concatenarPotencia() {//revisar esto // borrar antes de entregar este metodo
         unir = binding.mostrar.getText().toString();
         if (binding.num1.callOnClick()) {
 
@@ -173,6 +175,14 @@ public class MainActivity extends AppCompatActivity {//revisar lo de la potencia
             //Toast.makeText(this, "ninguna regla", Toast.LENGTH_SHORT).show();
         }
 
+
+        //if de prueba borrar // cadena
+        for(int i=0;i<valor.length();i++){
+            char letra  = valor.charAt(i);
+            if(letra == ')' || letra == '^' || letra == '2'){
+                Toast.makeText(this, "cadena", Toast.LENGTH_SHORT).show();
+            }
+        }
         //numero(valor);
     }
 
@@ -390,7 +400,7 @@ public class MainActivity extends AppCompatActivity {//revisar lo de la potencia
         return regla;
     }
 
-    public boolean regla8(String valor) {//FRACION
+    public boolean regla8(String valor) {//FRACCION // revisar esta regla falta signo de raiz
         String valorFinal = "";
         boolean regla = false;
         for (int i = 0; i < valor.length(); i++) {
@@ -417,7 +427,6 @@ public class MainActivity extends AppCompatActivity {//revisar lo de la potencia
 
 
     String borrar1(String valor) {
-        //cadena = mostrar.getText().toString();
         String aux ="";
         if(valor.length() != 0){
             aux = valor.substring(0,valor.length()-1);
@@ -433,9 +442,10 @@ public class MainActivity extends AppCompatActivity {//revisar lo de la potencia
         return cadena;
     }
 
-    public void mostrarResultado(String regla,String ecuacion){
+    public void mostrarResultado(String regla,String ecuacion){//Regla fórmula ejemplo y tipo
         AlertDialog.Builder alerta = new AlertDialog.Builder(MainActivity.this);
-        alerta.setMessage("Valor de la ecuacion: "+ecuacion)
+        alerta.setMessage("Valor de la ecuacion: "+ecuacion+
+                        "\nEjemplo:"+ejemplo(regla)+"\nFormula:"+formula(regla)+"\nTipo de función:"+2)
         .setCancelable(true)
         .setPositiveButton("Regresar", new DialogInterface.OnClickListener() {
             @Override
@@ -448,6 +458,70 @@ public class MainActivity extends AppCompatActivity {//revisar lo de la potencia
         titulo.show();
 
     }
+
+    public String formula(String regla){//falta 7 y 8
+        String formula = "";
+        switch (regla){
+            case "Regla 1":
+                formula = "F(x) = c / f(c)=0";
+                break;
+            case "Regla 2":
+                formula = "F(x) = x / f(x)=1";
+                break;
+            case "Regla 3":
+                formula = "F(x) = cx / f(cx)=c";
+                break;
+            case "Regla 4":
+                formula = "F(x) = cxⁿ / f(xⁿ)=nxⁿ⁻¹";
+                break;
+            case "Regla 5":
+                formula = "F(x) = cxⁿ / f(cxⁿ)=cnxⁿ⁻¹";
+                break;
+            case "Regla 6":
+                formula = "f(x)=g(x) +/- i(x) +/- h(x)…. / d/dx = g'(x) +/- i'(x) +/- h'(x) ....";
+                break;
+            case "Regla 7":
+                formula = "f(x)= g(x) h(x) / d/dx (g h) = g(x) h'(x) + g'(x) h(x)";
+                break;
+            case "Regla 8":
+                formula = "f(x) = g(x)/h(x) / d/dx(g/h) = h(x) g'(x) - g(x) h'(x) / h(x)²";
+                break;
+        }
+        return formula;
+    }
+
+    public String ejemplo(String regla){//falta 7 8
+        String ejemplo = "";
+        switch (regla){
+            case "Regla 1":
+                ejemplo = "5 = 0";
+                break;
+            case "Regla 2":
+                ejemplo = "x = 1";
+                break;
+            case "Regla 3":
+                ejemplo = "7x = 7";
+                break;
+            case "Regla 4":
+                ejemplo = "x^² = 2x";
+                break;
+            case "Regla 5":
+                ejemplo = "7x^² = 14x";
+                break;
+            case "Regla 6":
+                ejemplo = "7x^² + 4x -3 = 14x + 4";
+                break;
+            case "Regla 7":
+                ejemplo = "(4x+1)(10x^²-5) = 20x(4x+1) + 4(10x^²-5)";
+                break;
+            case "Regla 8":
+                ejemplo = "4x+1/10x^²-5 = 4(10x^²-5)-20x(4x+1)/(10x^²-5)^²";
+                break;
+        }
+        return ejemplo;
+    }
+
+
 
 
 }

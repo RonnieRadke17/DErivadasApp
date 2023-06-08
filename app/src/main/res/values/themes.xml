@@ -6,4 +6,10 @@
     </style>
 
     <style name="Theme.DerivadasApp" parent="Base.Theme.DerivadasApp" />
+    
+    <style name="SplashTheme" parent="Base.Theme.DerivadasApp">
+        <item name="android:windowBackground">@drawable/splash_background</item>
+    </style>
+    
+    
 </resources>

@@ -3,5 +3,26 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="grey">#686464</color>
-    <color name="green">#FF5722</color>
+    <color name="orange">#FF5722</color>
+
+
+        <!-- Colores principales -->
+        <color name="colorPrimary">#0000FF</color> <!-- Azul oscuro -->
+        <color name="colorPrimaryDark">#333333</color> <!-- Gris oscuro -->
+        <color name="colorAccent">#FFA500</color> <!-- Naranja -->
+
+        <!-- Colores de texto -->
+        <color name="colorTextPrimary">#000000</color> <!-- Negro -->
+        <color name="colorTextSecondary">#FFFFFF</color> <!-- Blanco -->
+
+        <!-- Otros colores -->
+        <color name="colorBackground">#FFFFFF</color> <!-- Blanco -->
+        <color name="colorButtonPrimary">#00FF00</color> <!-- Verde claro -->
+        <color name="colorButtonSecondary">#CCCCCC</color> <!-- Gris claro -->
+        <color name="colorButtonEquals">#3399FF</color> <!-- Azul claro -->
+
+
+
+
+
 </resources>
